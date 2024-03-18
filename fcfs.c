@@ -10,7 +10,7 @@ struct process{
 void main(){
     int n,i,j;
     int currenttime = 0;
-    float total_waitingtime,total_turnaroundtime;
+    float total_waitingtime = 0,total_turnaroundtime = 0;
     printf("\nEnter the number of the processes : ");
     scanf("%d",&n);
     struct process p[n];
