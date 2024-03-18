@@ -36,21 +36,14 @@ void main(){
         printf("\nP%d\t\t\t\t%d\t\t\t\t%d",p[i].processnumber,p[i].arrivaltime,p[i].bursttime);
     }
     for(i=0;i<n;i++){
-        if(currenttime >= p[i].arrivaltime){
+        if(currenttime <= p[i].arrivaltime){
+                currenttime = currenttime + (p[i].arrivaltime - currenttime);
+        }
             p[i].waitingtime = currenttime - p[i].arrivaltime;
             total_waitingtime += p[i].waitingtime;
             currenttime = currenttime + p[i].bursttime;
             p[i].turnaroundtime = currenttime - p[i].arrivaltime;
             total_turnaroundtime += p[i].turnaroundtime;
-        }
-        else{
-            currenttime = currenttime + (p[i].arrivaltime - currenttime);
-            p[i].waitingtime = currenttime - p[i].arrivaltime;
-            total_waitingtime += p[i].waitingtime;
-            currenttime = currenttime + p[i].bursttime;
-            p[i].turnaroundtime = currenttime - p[i].arrivaltime;
-            total_turnaroundtime += p[i].turnaroundtime;
-        }
     }
     printf("\n****OUTPUT***\n");
     printf("process number\t\tWaiting time\t\tTurn around time");
