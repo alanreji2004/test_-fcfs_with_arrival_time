@@ -37,7 +37,7 @@ void main(){
     }
     for(i=0;i<n;i++){
         if(currenttime <= p[i].arrivaltime){
-                currenttime = currenttime + (p[i].arrivaltime - currenttime);
+                currenttime = p[i].arrivaltime;
         }
             p[i].waitingtime = currenttime - p[i].arrivaltime;
             total_waitingtime += p[i].waitingtime;
